@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+		<title></title>
+	<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #262020;
+    }
+    #main {
+        width: 100vw;  /* Adjusts to 100% of viewport width */
+        height: 100vh; /* Adjusts to 100% of viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Medium devices (tablets, 768px and up) */
+    @media (min-width: 768px) {
+        #main {
+            width: 75vw;  /* Adjusts to 75% of viewport width */
+            height: 75vh; /* Adjusts to 75% of viewport height */
+        }
+    }
+
+
+    /* Large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+        #main {
+            width: 100vw;  /* Adjusts to 80% of viewport width */
+            height: 100vh; /* Adjusts to 80% of viewport height */
+        }
+    }
+</style>
+	</head>
+	<body>
+		<div id="main" ></div>
+	</body>
+	<script type="text/javascript" src="js/echarts.min.js" ></script>
+	<script type="text/javascript" src="js/gansu.js"></script>
+	<script>
+    var screen_width = window.screen.width;
+var screen_height = window.screen.height;
+
+if (screen_width < 500 ) {
+  var chart = echarts.init(document.getElementById('main'));
+chart.setOption({
+    tooltip: {
+        trigger: 'item',
+        formatter: function(params) {
+            if(params.data && params.data.value) {
+                return params.data.value;
+            } else {
+                return params.name;
+            }
+        }
+    },
+    series: [{
+        type: 'map',
+        map: '甘肃',
+        selectedMode : 'single',
+        itemStyle:{  
+            normal:{
+                label:{show:true,
+                      color: '#262020',
+                      textBorderColor: '#fec372', // 描边颜色为黑色
+                      textBorderWidth: 0.8,
+                      textStyle: {
+                      fontSize: 8  // 字体大小},
+                      },
+                      },
+                areaColor: '#F2C372',
+                borderWidth: 2, // 设置区域边框宽度
+                borderColor: '#fff0cf',
+                opacity:1,
+        },  
+            emphasis:{label:{show:true},
+                     areaColor: '#FFF0CF',
+                     opacity:1,
+                     },  
+            
+        },
+        markPoint: {
+            symbol: 'image://https://i.ibb.co/ZNwMWFG/shikusi.png', 
+            symbolSize: [15, 15],
+            data: [
+    {
+        name: '敦煌莫高窟',
+        coord: [96.46401033, 40.15163884],
+        value: '敦煌莫高窟'
+    },
+    {
+        name: '敦煌千佛洞',
+        coord: [94.80453304, 41.0514686],
+        value: '敦煌千佛洞'
+    },
+    {
+        name: '麦积山石窟',
+        coord: [103.20516, 34.601165],
+        value: '麦积山石窟'
+    },
+    {
+        name: '大通石窟',
+        coord: [104.70646, 34.79435],
+        value: '大通石窟'
+    },
+    {
+        name: '五台山石窟',
+        coord: [98.213171, 38.992662],
+        value: '五台山石窟'
+    },
+    {
+        name: '幽州千佛洞',
+        coord: [94.196489, 39.999488],
+        value: '幽州千佛洞'
+    },
+    {
+        name: '西千佛洞',
+        coord: [93.365, 39.5763889],
+        value: '西千佛洞'
+    },
+    {
+        name: '榆林窟',
+        coord: [95.9361111, 40.6591667],
+        value: '榆林窟'
+    },
+    {
+        name: '文殊山石窟',
+        coord: [98.3525, 39.6544444],
+        value: '文殊山石窟'
+    },
+    {
+        name: '马蹄寺石窟群',
+        coord: [100.4172222, 38.4861111],
+        value: '马蹄寺石窟群'
+    },
+    {
+        name: '天梯山石窟',
+        coord: [102.7447222, 37.5619444],
+        value: '天梯山石窟'
+    },
+    {
+        name: '炳灵寺石窟',
+        coord: [105.6855556, 33.5394444],
+        value: '炳灵寺石窟'
+    },
+    {
+        name: '北石窟',
+        coord: [107.635, 35.5922222],
+        value: '北石窟'
+    },
+    {
+        name: '南石窟',
+        coord: [107.4533333, 36.5663889],
+        value: '南石窟'
+    },
+    {
+        name: '大佛崖石窟',
+        coord: [107.9852778, 35.0619444],
+        value: '大佛崖石窟'
+    },
+    {
+        name: '石拱寺石窟',
+        coord: [106.6572222, 35.0780556],
+        value: '石拱寺石窟'
+    }
+                // ... 更多石窟寺的数据
+            ],
+            label: {
+                show: false
+            },
+            itemStyle: {
+                normal: {
+                    color: 'transparent'  //图标的颜色
+                }
+            },
+
+        }
+    }]
+});
+
+}else{
+    var chart = echarts.init(document.getElementById('main'));
+chart.setOption({
+    tooltip: {
+        trigger: 'item',
+        formatter: function(params) {
+            if(params.data && params.data.value) {
+                return params.data.value;
+            } else {
+                return params.name;
+            }
+        }
+    },
+    series: [{
+        type: 'map',
+        map: '甘肃',
+        selectedMode : 'single',
+        itemStyle:{  
+            normal:{
+                label:{show:true,
+                      color: '#262020',
+                      textBorderColor: '#fec372', // 描边颜色为黑色
+                      textBorderWidth: 0.8,
+                      textStyle: {
+                      fontSize: 12  // 字体大小},
+                      },
+                      },
+                areaColor: '#F2C372',
+                borderWidth: 2, // 设置区域边框宽度
+                borderColor: '#fff0cf',
+                opacity:1,
+        },  
+            emphasis:{label:{show:true},
+                     areaColor: '#FFF0CF',
+                     opacity:1,
+                     },  
+            
+        },
+        markPoint: {
+            symbol: 'image://https://i.ibb.co/ZNwMWFG/shikusi.png', 
+            symbolSize: [20, 20],
+            data: [
+    {
+        name: '敦煌莫高窟',
+        coord: [94.66401033, 40.15163884],
+        value: '敦煌莫高窟'
+    },
+    {
+        name: '敦煌千佛洞',
+        coord: [93.80453304, 40.0514686],
+        value: '敦煌千佛洞'
+    },
+    {
+        name: '麦积山石窟',
+        coord: [103.20516, 34.601165],
+        value: '麦积山石窟'
+    },
+    {
+        name: '大通石窟',
+        coord: [104.70646, 34.79435],
+        value: '大通石窟'
+    },
+    {
+        name: '五台山石窟',
+        coord: [98.213171, 38.992662],
+        value: '五台山石窟'
+    },
+    {
+        name: '幽州千佛洞',
+        coord: [95.196489, 40.999488],
+        value: '幽州千佛洞'
+    },
+    {
+        name: '西千佛洞',
+        coord: [94.365, 39.9763889],
+        value: '西千佛洞'
+    },
+    {
+        name: '榆林窟',
+        coord: [95.9361111, 40.0591667],
+        value: '榆林窟'
+    },
+    {
+        name: '文殊山石窟',
+        coord: [99.2525, 39.9544444],
+        value: '文殊山石窟'
+    },
+    {
+        name: '马蹄寺石窟群',
+        coord: [100.4172222, 38.4861111],
+        value: '马蹄寺石窟群'
+    },
+    {
+        name: '天梯山石窟',
+        coord: [102.7447222, 37.5619444],
+        value: '天梯山石窟'
+    },
+    {
+        name: '炳灵寺石窟',
+        coord: [105.6855556, 34.0394444],
+        value: '炳灵寺石窟'
+    },
+    {
+        name: '北石窟',
+        coord: [107.635, 36.1922222],
+        value: '北石窟'
+    },
+    {
+        name: '南石窟',
+        coord: [107.4533333, 35.3663889],
+        value: '南石窟'
+    },
+    {
+        name: '大佛崖石窟',
+        coord: [107.9852778, 35.0619444],
+        value: '大佛崖石窟'
+    },
+    {
+        name: '石拱寺石窟',
+        coord: [106.6572222, 35.0780556],
+        value: '石拱寺石窟'
+    }
+                // ... 更多石窟寺的数据
+            ],
+            label: {
+                show: false
+            },
+            itemStyle: {
+                normal: {
+                    color: 'transparent'  //图标的颜色
+                }
+            },
+
+        }
+    }]
+});
+
+}
+
+        
+
+	</script>
+</html>
+
+
+
+
+
+
+
+

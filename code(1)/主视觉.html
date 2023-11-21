@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="./css/display.css" />
+<link href="./css/fonts.googleapis.com_css2_family=Poppins&display=swap.css" rel="stylesheet" />
+<link rel="stylesheet" href="./css/part_2_style.css" />
+       <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<title>文明的温度</title>
+</head>
+
+<style>
+
+   /* Medium devices (tablets, 768px and up) */
+    @media (max-width: 768px) {
+        .cpslimg{height: 300px;}
+        .scrl{width: 400px}
+        #mmif{position: fixed !important;}
+        #scrl{max-width: 30rem !important;}
+   #fffim{width: 150%; height: 280px;overflow: hidden !important;} 
+ /*  #fffim{  transform: scale(1);} */
+        .step p{font-size: 14px !important ;}
+        .is-active p{font-size: 14px !important ;}
+        #dfv1{height:200px !important ;}
+        #dddv{position: relative; display: flex; justify-content: center; align-items: center; height: 30vh}
+        #dddv2{display: flex; justify-content: center; align-items: center; height: 35vh;overflow-y: hidden}
+      #idcm{height: 200px} 
+      #scrl{position: absolute;}
+      .scrolly-1{}
+       /* 第一部分封面视差交互效果的css */
+@import url('https://fonts.googleapis.com/css?familty=Poppins:300,400,500,600,700,800,900&diaplay=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', 'sans-serif';
+}
+.sun-box{height:200px !important;}
+.scroll-line {margin-left:1px !important;width: 100% !important;padding:1px !important ;}
+.pp1{font-size: 14px;padding:0px 20px}
+.pp12{font-size: 9px;padding:0px 20px}
+#dpp1{margin-top: -10px;}
+body {
+    background: #262020;
+    min-height: 15000px;
+    /* 使页面内容不超过视窗宽度，超过部分不显示 */
+    width: 100vw;
+    overflow-x: hidden;
+}
+.fengmian {
+    position: relative;
+    width: 100%;
+    height: 56.26vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+.fengmian:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100px;
+    background: linear-gradient(to top, #262020, transparent);
+    z-index: 10000;
+}
+.fengmian:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    mix-blend-mode: color;
+}
+.fengmian img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100wh;
+    object-fit: cover;
+    pointer-events: none;
+}
+#ding {
+    z-index: 2;
+}
+.content-div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.content-wrap {
+    width: 640px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+}
+.content-wrap p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.text-content {
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-right: 10px;
+    color: white;
+    display: flex;
+    justify-content: left;
+    object-fit: contain;
+    overflow: auto;
+}
+.text-content1 {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-top: 50px;
+    color: white;
+    display: flex;
+    justify-content: left;
+    object-fit: contain;
+    overflow: auto;
+}
+.fade-in-text {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    object-fit: contain;
+    display: flex;
+}
+/* 颜色渐变 */
+.gradient-background {
+    background: linear-gradient(to bottom, #262020 0%, #f2c372 100%, #262020 100%);
+    width: 100%;
+    height: 30vh;
+}
+.image {
+    max-width: 100px; /* 根据需要调整图片的宽度 */
+    margin-right: 10px; /* 图片与文本之间的间距 */
+    opacity: 0; /* 初始透明度为0，即不可见 */
+    transition: opacity 1.5s ease; /* 添加过渡效果 */
+}
+.image1 {
+    max-width: 100px; /* 根据需要调整图片的宽度 */
+    margin-right: 10px; /* 图片与文本之间的间距 */
+    opacity: 0; /* 初始透明度为0，即不可见 */
+    transition: opacity 1.5s ease; /* 添加过渡效果 */
+    transition-delay: 1.5s; /* 在10.5秒后开始过渡 */
+    object-fit: contain;
+}
+.cover, .cover1, .cover2, .cover3 {
+    width: 100%;
+    height: 56.26vw;
+    position: relative;
+    background-image: url('./image/5-封面1.png'), url('./image/fo.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #bbb;
+    color: #fff;
+    text-align: left;
+    padding-left: 55%;
+    font-size: 2.5vw;
+}
+.cover1 {
+    background-image: url('./image/8-封面2.png'),url('./image/CHICUN.gif');
+}
+.cover2 {
+    background-image: url('./image/cover3-1.jpg'),url('./image/cover3.jpg');
+}
+.cover3 {
+    background-image: url('./image/13.png');
+    background-color: #262020;
+}
+.cover .cover-text, .cover1 .cover-text, .cover2 .cover-text, .cover3 .cover-text {
+    position: absolute;
+    /*top: 50%;*/
+    bottom: 0;
+    left: 55%; /* 将文本置于盒子的右侧 */
+    /*transform: translateY(50%);*/
+      /* background-color: rgba(0, 0, 0, 0.5);*/ /* 可选：添加半透明背景以提高文本可读性 */
+    color: #fff;
+    /*font-size: 30px;*/ /* 调整文本大小 */
+    white-space: nowrap; /* 防止文字换行 */
+}
+.cover .cover-text p, .cover1 .cover-text p, .cover2 .cover-text p, .cover3 .cover-text p {
+    margin: 10% 0;
+}
+/* 方框中文字*/
+.text-box {
+    width: 300px;
+    height: 100px;
+    background-color: rgba(34, 34, 34, 0.5); /* 背景色为浅黑色 */
+    border: none; /* 无边框 */
+    margin-top: 50px; /* 上外边距 */
+    margin-left: 50px; /* 左外边距 */
+    padding: 20px;
+    top: 0;
+    z-index: 2;
+    /*text-align: center;*/
+    color: #f2f2f2; /* 文字颜色为浅白色 */
+    position: absolute; /* 使用绝对定位 */
+    transition: top 1.5s ease; /* 添加过渡效果 */
+}
+.text-box-modified {
+    width: 300px;
+    height: 90px;
+    background-color: rgba(254, 195, 114, 0.1);
+    border: none;
+    padding: 20px;
+    top: 50%; /* 修改为0%，使文案在容器的顶部 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #f2f2f2;
+    position: absolute;
+    opacity: 0; /* 设置初始状态为透明 */
+    transition: opacity 2s ease; /* 设置淡入效果 */
+}
+.text-box-modified1 {
+    width: 300px;
+    height: 100px;
+    background-color: rgba(254, 195, 114, 0.1);
+    border: none;
+    padding: 20px;
+    top: 50%; /* 修改为0%，使文案在容器的顶部 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #f2f2f2;
+    position: absolute;
+    opacity: 0; /* 设置初始状态为透明 */
+    transition: opacity 2s ease; /* 设置淡入效果 */
+}
+/* 折线数据图gif的css */
+.gif-container {
+    position: relative;
+    width: 75%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+#gifImage1 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#gifImage2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.gif-container1 {
+    position: relative;
+    width: 75%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: auto;  
+}
+#gifImage3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.gif-container3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+/* 地图居中 */
+.center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flourish-embed-iframe {
+    background-color: #262020;
+}
+iframe {
+    background-color: #262020;
+}
+/* 地图filter */
+
+.container-ditu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    object-fit: contain;
+    justify-content: center;
+}
+.filter-container {
+    background-color: #262020;
+    padding: 10px;
+}
+.filter-container label, .filter-container select {
+    color: #f2c372;
+    opacity: 0.7;
+}
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+.iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transition: opacity 0.5s ease;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+/* 第一部分结尾破坏图的css */
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.swiper-container {
+    width: 75%;
+    height: 28vw;
+    transition: opacity 0.6s ease;
+}
+.swiper-container.swiper-container-coverflow {
+    padding-top: 2%;
+}
+.swiper-container.loading {
+    opacity: 0;
+    visibility: hidden;
+}
+@keyframes fadeIn {
+0% {
+opacity: 1;
+}
+50% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+.swiper-container .swiper-button-prev, .swiper-container .swiper-button-next {
+    visibility: visible !important;
+    animation: fadeIn 2s ease-in-out infinite;
+}
+.swiper-container:hover .swiper-button-prev, .swiper-container:hover .swiper-button-next {
+    /*transform: translateX(0);*/
+    opacity: 1;
+    visibility: visible;
+    animation: none;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+}
+.swiper-slide .entity-img {
+    display: none;
+}
+.swiper-slide .content {
+    position: relative;
+    top: 30%;
+    left: 0;
+    width: 80%;
+    padding-left: 5%;
+    color: #fff;
+}
+.swiper-slide .content .title {
+    font-size: 2.6em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.swiper-slide .content .caption {
+    position: relative;
+    display: block;
+    font-size: 20px;
+    line-height: 1.2;
+}
+[class^='swiper-button-'] {
+    width: 44px;
+    opacity: 0;
+    visibility: hidden;
+}
+.swiper-button-prev {
+    transform: translateX(50px);
+}
+.swiper-button-next {
+    transform: translateX(-50px);
+}
+#iframe1{
+    transform: scale(1.2);
+}
+
+    }
+
+    /* Large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+         #dddv2{display: flex; justify-content: center; align-items: center; height: 65vh}
+       /* 第一部分封面视差交互效果的css */
+@import url('https://fonts.googleapis.com/css?familty=Poppins:300,400,500,600,700,800,900&diaplay=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', 'sans-serif';
+}
+body {
+    background: #262020;
+    min-height: 15000px;
+    /* 使页面内容不超过视窗宽度，超过部分不显示 */
+    width: 100vw;
+    overflow-x: hidden;
+}
+.fengmian {
+    position: relative;
+    width: 100%;
+    height: 56.26vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+.fengmian:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100px;
+    background: linear-gradient(to top, #262020, transparent);
+    z-index: 10000;
+}
+.fengmian:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    mix-blend-mode: color;
+}
+.fengmian img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100wh;
+    object-fit: cover;
+    pointer-events: none;
+}
+#ding {
+    z-index: 2;
+}
+.content-div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.content-wrap {
+    width: 640px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+}
+.content-wrap p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.text-content {
+    padding-left: 180px;
+    padding-top: 20px;
+    padding-right: 180px;
+    color: white;
+    display: flex;
+    justify-content: left;
+    object-fit: contain;
+    overflow: auto;
+}
+.text-content1 {
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-bottom: 150px;
+    padding-top: 50px;
+    color: white;
+    display: flex;
+    justify-content: left;
+    object-fit: contain;
+    overflow: auto;
+}
+.fade-in-text {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    object-fit: contain;
+    display: flex;
+}
+/* 颜色渐变 */
+.gradient-background {
+    background: linear-gradient(to bottom, #262020 0%, #f2c372 100%, #262020 100%);
+    width: 100%;
+    height: 30vh;
+}
+.image {
+    max-width: 100px; /* 根据需要调整图片的宽度 */
+    margin-right: 10px; /* 图片与文本之间的间距 */
+    opacity: 0; /* 初始透明度为0，即不可见 */
+    transition: opacity 1.5s ease; /* 添加过渡效果 */
+}
+.image1 {
+    max-width: 100px; /* 根据需要调整图片的宽度 */
+    margin-right: 10px; /* 图片与文本之间的间距 */
+    opacity: 0; /* 初始透明度为0，即不可见 */
+    transition: opacity 1.5s ease; /* 添加过渡效果 */
+    transition-delay: 1.5s; /* 在10.5秒后开始过渡 */
+    object-fit: contain;
+}
+.cover, .cover1, .cover2, .cover3 {
+    width: 100%;
+    height: 56.26vw;
+    position: relative;
+    background-image: url('./image/5-封面1.png'), url('./image/fo.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #bbb;
+    color: #fff;
+    text-align: left;
+    padding-left: 55%;
+    font-size: 2.5vw;
+}
+.cover1 {
+    background-image: url('./image/8-封面2.png'),url('./image/CHICUN.gif');
+}
+.cover2 {
+    background-image: url('./image/cover3-1.jpg'),url('./image/cover3.jpg');
+}
+.cover3 {
+    background-image: url('./image/13.png');
+    background-color: #262020;
+}
+.cover .cover-text, .cover1 .cover-text, .cover2 .cover-text, .cover3 .cover-text {
+    position: absolute;
+    /*top: 50%;*/
+    bottom: 0;
+    left: 55%; /* 将文本置于盒子的右侧 */
+    /*transform: translateY(50%);*/
+      /* background-color: rgba(0, 0, 0, 0.5);*/ /* 可选：添加半透明背景以提高文本可读性 */
+    color: #fff;
+    /*font-size: 30px;*/ /* 调整文本大小 */
+    white-space: nowrap; /* 防止文字换行 */
+}
+.cover .cover-text p, .cover1 .cover-text p, .cover2 .cover-text p, .cover3 .cover-text p {
+    margin: 10% 0;
+}
+/* 方框中文字*/
+.text-box {
+    width: 300px;
+    height: 100px;
+    background-color: rgba(34, 34, 34, 0.5); /* 背景色为浅黑色 */
+    border: none; /* 无边框 */
+    margin-top: 50px; /* 上外边距 */
+    margin-left: 50px; /* 左外边距 */
+    padding: 20px;
+    top: 0;
+    z-index: 2;
+    /*text-align: center;*/
+    color: #f2f2f2; /* 文字颜色为浅白色 */
+    position: absolute; /* 使用绝对定位 */
+    transition: top 1.5s ease; /* 添加过渡效果 */
+}
+.text-box-modified {
+    width: 600px;
+    height: 130px;
+    background-color: rgba(254, 195, 114, 0.1);
+    border: none;
+    padding: 20px;
+    top: 50%; /* 修改为0%，使文案在容器的顶部 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #f2f2f2;
+    position: absolute;
+    opacity: 0; /* 设置初始状态为透明 */
+    transition: opacity 2s ease; /* 设置淡入效果 */
+}
+.text-box-modified1 {
+    width: 600px;
+    height: 130px;
+    background-color: rgba(254, 195, 114, 0.1);
+    border: none;
+    padding: 20px;
+    top: 50%; /* 修改为0%，使文案在容器的顶部 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #f2f2f2;
+    position: absolute;
+    opacity: 0; /* 设置初始状态为透明 */
+    transition: opacity 2s ease; /* 设置淡入效果 */
+}
+/* 折线数据图gif的css */
+.gif-container {
+    position: relative;
+    width: 75%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+#gifImage1 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#gifImage2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.gif-container1 {
+    position: relative;
+    width: 75%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: auto;  
+}
+#gifImage3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.gif-container3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+/* 地图居中 */
+.center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flourish-embed-iframe {
+    background-color: #262020;
+}
+iframe {
+    background-color: #262020;
+}
+/* 地图filter */
+
+.container-ditu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    object-fit: contain;
+    justify-content: center;
+}
+.filter-container {
+    background-color: #262020;
+    padding: 10px;
+}
+.filter-container label, .filter-container select {
+    color: #f2c372;
+    opacity: 0.7;
+}
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+.iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transition: opacity 0.5s ease;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+/* 第一部分结尾破坏图的css */
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.swiper-container {
+    width: 75%;
+    height: 28vw;
+    transition: opacity 0.6s ease;
+}
+.swiper-container.swiper-container-coverflow {
+    padding-top: 2%;
+}
+.swiper-container.loading {
+    opacity: 0;
+    visibility: hidden;
+}
+@keyframes fadeIn {
+0% {
+opacity: 1;
+}
+50% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+.swiper-container .swiper-button-prev, .swiper-container .swiper-button-next {
+    visibility: visible !important;
+    animation: fadeIn 2s ease-in-out infinite;
+}
+.swiper-container:hover .swiper-button-prev, .swiper-container:hover .swiper-button-next {
+    /*transform: translateX(0);*/
+    opacity: 1;
+    visibility: visible;
+    animation: none;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+}
+.swiper-slide .entity-img {
+    display: none;
+}
+.swiper-slide .content {
+    position: relative;
+    top: 30%;
+    left: 0;
+    width: 80%;
+    padding-left: 5%;
+    color: #fff;
+}
+.swiper-slide .content .title {
+    font-size: 2.6em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.swiper-slide .content .caption {
+    position: relative;
+    display: block;
+    font-size: 20px;
+    line-height: 1.2;
+}
+[class^='swiper-button-'] {
+    width: 44px;
+    opacity: 0;
+    visibility: hidden;
+}
+.swiper-button-prev {
+    transform: translateX(50px);
+}
+.swiper-button-next {
+    transform: translateX(-50px);
+}
+#iframe1{
+    transform: scale(1);
+}
+.pp1{font-size: 20px}
+#dpp1{margin-top: -100px}
+#dddv{position: relative; display: flex; justify-content: center; align-items: center; height: 100vh}
+ #fffim{width: 100%; height: 400px} 
+    }
+
+</style>
+
+<body>
+<!-- 第一部分 --> 
+<!-- 封面 section -->
+<section class="fengmian"> <img src="./image/bg.png" id="bg" /> <img src="./image/1-顶层.png" id="di" /> <img src="./image/2-中层.png" id="zhong" /> <img src="./image/3-底层.png" id="ding" /> <img src="./image/文.png" id="text" /> </section>
+
+<br>
+<br>
+<br>    
+<!-- 数据图GIF-gif图待替换  -->
+<div class="gif-container" style="position: relative"> <img src="./image/4-图1.gif" alt="Your gif" id="gifImage1" />
+  <div class="text-box-modified" style="" id="dpp1">
+    <p class="pp12" style=""> 当全球变暖的速度比至少两千年以来的任何时候更快，这样长期的气候变化对文物遗迹的保存造成额外的潜在威胁，加剧了文物遗迹损坏速度、导致新的损坏类型出现。 </p>
+  </div>
+</div>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const gifImage1 = document.getElementById('gifImage1');
+        let gifIsLoaded = false;
+
+        // 预加载静态图片
+        const staticImage = new Image();
+        staticImage.src = './image/数据2.png';
+
+        function isFullyVisible(element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top >= 0 && rect.bottom <= window.innerHeight;
+        }
+
+        function loadAndPlayGIF() {
+          if (!gifIsLoaded) {
+            gifImage1.src = './image/4-图1.gif';
+            gifIsLoaded = true;
+            let gifDuration = 9000;
+            setTimeout(() => {
+              gifImage1.src = staticImage.src; // 使用预加载的图片路径
+              document.querySelector('.text-box-modified').style.opacity = '1';
+            }, gifDuration);
+          }
+        }
+
+        function loadAndPlayGIFOnScroll() {
+          if (isFullyVisible(gifImage1)) {
+            loadAndPlayGIF();
+            window.removeEventListener('scroll', loadAndPlayGIFOnScroll);
+          }
+        }
+
+        window.addEventListener('scroll', loadAndPlayGIFOnScroll);
+      });
+    </script> 
+
+<!-- 文字 --> 
+
+<br />
+<br />
+<br />
+<br />
+<script>
+      const image = document.querySelector('.image');
+      function fadeInImage() {
+        image.style.opacity = 1; // 设置透明度为1，图片逐渐显示出来
+      }
+      function checkScrollImage() {
+        const elementPosition = image.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementPosition < windowHeight) {
+          fadeInImage();
+          window.removeEventListener('scroll', checkScrollImage); // 移除滚动事件监听
+        }
+      }
+      window.addEventListener('scroll', checkScrollImage);
+
+      const image1 = document.querySelector('.image1');
+      function fadeInImage1() {
+        image1.style.opacity = 1; // 设置透明度为1，图片逐渐显示出来
+      }
+      function checkScrollImage1() {
+        const elementPosition = image1.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementPosition < windowHeight) {
+          fadeInImage1();
+          window.removeEventListener('scroll', checkScrollImage1); // 移除滚动事件监听
+        }
+      }
+      window.addEventListener('scroll', checkScrollImage1);
+    </script>
+<div class="cover">
+
+
+</div>
+
+<!-- 佛教传入中国GIF-gif图待替换  --> 
+
+<br />
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 0; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img src="./image/2.png" class="image3" />被誉为中国的<span style="font-weight: bold; color: #f2c372">“石窟之乡” </span
+          >的甘肃，生动形象地再现了中国佛教的发展历史，也全面、完整地表现了中国佛教艺术的发展演变过程。 </p>
+  </div>
+</div>
+<br />    
+<div class="gif-container1"> <img src="./image/6-fojiaochuanbo.png" alt="Your gif" id="gifImage2" />
+  <div class="text-box-modified">
+    <p class="pp1"> 当全球变暖的速度比至少两千年以来的任何时候更快，这样长期的气候变化对文物遗迹的保存造成额外的潜在威胁，加剧了文物遗迹损坏速度、导致新的损坏类型出现。 </p>
+  </div>
+</div>
+
+<div class="text-content">
+  <div class="fade-in-text"> <img src="./image/2.png" class="image3" /> </div>
+</div>
+<script>
+      const image3 = document.querySelector('.image3');
+      function fadeInImage() {
+        image.style.opacity = 1; // 设置透明度为1，图片逐渐显示出来
+      }
+      function checkScrollImage() {
+        const elementPosition = image.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementPosition < windowHeight) {
+          fadeInImage();
+          window.removeEventListener('scroll', checkScrollImage); // 移除滚动事件监听
+        }
+      }
+      window.addEventListener('scroll', checkScrollImage);
+    </script>
+<div class="gif-container3"> <img src="./image/7-gansu.gif" alt="Your gif" id="gifImage3" />
+  <div class="text-box-modified1">
+    <p class="pp12"> 甘肃的石窟寺沿河西走廊和陇东一线分布，是中国石窟分布最集中的地区。根据甘肃省石窟寺专项调查报告2021年的统计，全省现有文物点<span
+            style="font-weight: bold; color: #f2c372"
+            >236个</span
+          >，包括<span style="font-weight: bold; color: #f2c372">229座</span>石窟寺，7座摩崖造像。 </p>
+  </div>
+</div>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const gifImage3 = document.getElementById('gifImage3');
+        let gifIsLoaded = false;
+
+        // 预加载静态图片
+        const staticImage = new Image();
+        staticImage.src = './image/7-gansu.png';
+
+        function isFullyVisible(element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top >= 0 && rect.bottom <= window.innerHeight;
+        }
+
+        function loadAndPlayGIF() {
+          if (!gifIsLoaded) {
+            gifImage3.src = './image/7-gansu.gif';
+            gifIsLoaded = true;
+            let gifDuration = 4000;
+            setTimeout(() => {
+              gifImage3.src = staticImage.src; // 使用预加载的图片路径
+              document.querySelector('.text-box-modified1').style.opacity = '1';
+            }, gifDuration);
+          }
+        }
+
+        function loadAndPlayGIFOnScroll() {
+          if (isFullyVisible(gifImage3)) {
+            loadAndPlayGIF();
+            window.removeEventListener('scroll', loadAndPlayGIFOnScroll);
+          }
+        }
+
+        window.addEventListener('scroll', loadAndPlayGIFOnScroll);
+      });
+    </script>
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 0; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img src="./image/2.png" class="image3" />甘肃省全境<span style="font-weight: bold; color: #f2c372">14个</span
+          >市州，除甘南藏族自治州外兰州、白银、嘉峪关、酒泉、定西、临夏、陇南、平凉、庆阳、天水、武威、张掖、金昌等13 个市州，53
+      个县区均分布有石窟寺。 </p>
+  </div>
+</div>
+<script>
+      const textBox = document.querySelector('.text-box');
+      const gifContainer = document.querySelector('.gif-container1');
+
+      function moveTextBox() {
+        const scrollPosition = window.scrollY;
+        const gifContainerTop = gifContainer.getBoundingClientRect().top + scrollPosition;
+        const gifContainerBottom = gifContainer.getBoundingClientRect().bottom + scrollPosition;
+        const textBoxHeight = textBox.getBoundingClientRect().height;
+
+        // 计算文本框的底部位置
+        const textBoxBottom = scrollPosition + textBoxHeight;
+
+        // 计算文本框底部与 .gif-container1 底部的距离
+        const distanceToContainerBottom = gifContainerBottom - textBoxBottom;
+
+        // 检查文本框的底部是否距离 .gif-container1 底部小于 200px，是则隐藏文本框在底层
+        if (distanceToContainerBottom < 200) {
+          textBox.style.zIndex = '-1'; // 将文本框置于底层
+        } else {
+          textBox.style.zIndex = '1'; // 将文本框置于上层
+
+          // 调整文本框的 top 属性以使其与 .gif-container1 的顶部对齐
+          const newTop = Math.min(gifContainerBottom - textBoxHeight - 50, textBoxBottom - textBoxHeight);
+
+          // 检查 .text-box 的顶部是否在 .gif-container1 的顶部之上
+          textBox.style.top = `${Math.max(newTop, gifContainerTop)}px`;
+        }
+      }
+
+      // 当页面加载时，调用 moveTextBox 函数以设置正确的初始位置
+      window.addEventListener('DOMContentLoaded', moveTextBox);
+      window.addEventListener('scroll', moveTextBox);
+    </script> 
+
+<!-- 地图交互 -->
+<div class="container-ditu">
+
+  <div class="iframe-container">
+    <iframe id="iframe1" class="iframe" src="调用地图api-new.html"></iframe>
+  </div>
+</div>
+
+<!-- 文字  -->
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 0; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img
+            src="./image/2.png"
+            class="image3"
+          />如开篇所说，气候的长期缓慢变化，给甘肃地区的文物带来风化剥蚀、沉积掩埋、冻融撑裂、地下水侵蚀，以及盐碱起甲等挑战。同时，气候的急剧变化，主要为<span
+            style="font-weight: bold; color: #f2c372"
+            >极端天气</span
+          >引起的气象灾害（如洪水、风暴、火灾等），则会导致窟内渗水、壁画脱落，甚至崖壁上部和中部洞窟还有坍塌的风险，因而对石窟文物造成毁灭性的破坏。 </p>
+  </div>
+</div>
+
+<!-- 破坏图  -->
+<section class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="background-image: url(./image/酥碱.jpg)"> <img src="./image/酥碱.jpg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">酥碱和起甲</p>
+        <span class="caption" data-swiper-parallax="-20%"
+              >壁画地仗中含有大量可溶盐。盐分会随着环境湿度的高低而反复溶解膨胀或结晶收缩。这种变化作用于地仗层，破坏地仗层结构至酥松粉化（酥碱）。同时，壁画粉层（或颜料层）也会因与地仗层失去粘连作用而剥离（起甲）。因此，酥碱和起甲一般同时发生，是最严重、危害最大，且最难治理的石窟壁画病害之一。</span
+            > </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(./image/开裂.jpg)"> <img src="./image/开裂.jpg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">开裂和空鼓</p>
+        <span class="caption" data-swiper-parallax="-20%"
+              >石窟壁画常以山体为底。支撑山体出现裂隙或产生下沉时，不仅会导致壁画表面发生开裂，还会使壁画地仗层整体离开支撑层，从而出现空鼓。</span
+            > </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url(./image/脱落.jpg)"> <img src="./image/脱落.jpg" class="entity-img" />
+      <div class="content">
+        <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">脱落</p>
+        <span class="caption" data-swiper-parallax="-20%"
+              >脱落是石窟壁画长期酥碱、起甲、空鼓和开裂的最终结果，有片状、层状、块状和颗粒状等不同情况。壁画的画面层一旦脱落，就无法找回和修复，是不可挽回的损失。</span
+            > </div>
+    </div>
+  </div>
+  
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev swiper-button-white"></div>
+  <div class="swiper-button-next swiper-button-white"></div>
+</section>
+
+
+<!-- 第一部分 --> 
+<!-- 封面 js --> 
+<script type="text/javascript">
+      let bg = document.getElementById('bg');
+      let di = document.getElementById('di');
+      let zhong = document.getElementById('zhong');
+      let ding = document.getElementById('ding');
+
+      window.addEventListener('scroll', function () {
+        var value = window.scrollY;
+
+        bg.style.top = value * 0.8 + 'px';
+        di.style.top = value * 0.8 + 'px';
+        zhong.style.top = value * 0.5 + 'px';
+        ding.style.top = value * 0.2 + 'px';
+        text.style.top = value * 0.8 + 'px';
+      });
+    </script> 
+
+<!-- 破坏图js  -->
+<link rel="stylesheet" href="./css/swiper@4.0.7.min.css" />
+<script src="./js/swiper@4.4.1.min.js"></script> 
+<script>
+      // Params
+      var sliderSelector = '.swiper-container',
+        options = {
+          init: false,
+          loop: true,
+          speed: 800,
+          slidesPerView: 2, // or 'auto'
+          // spaceBetween: 10,
+          centeredSlides: true,
+          effect: 'coverflow', // 'cube', 'fade', 'coverflow',
+          coverflowEffect: {
+            rotate: 50, // Slide rotate in degrees
+            stretch: 0, // Stretch space between slides (in px)
+            depth: 100, // Depth offset in px (slides translate in Z axis)
+            modifier: 1, // Effect multipler
+            slideShadows: true // Enables slides shadows
+          },
+          grabCursor: true,
+          parallax: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          },
+          breakpoints: {
+            1023: {
+              slidesPerView: 1,
+              spaceBetween: 0
+            }
+          },
+          // Events
+          on: {
+            imagesReady: function () {
+              this.el.classList.remove('loading');
+            }
+          }
+        };
+      var mySwiper = new Swiper(sliderSelector, options);
+
+      // Initialize slider
+      mySwiper.init();
+    </script> 
+<script>
+      const fadeInTexts = document.querySelectorAll('.fade-in-text');
+
+      window.addEventListener('scroll', () => {
+        fadeInTexts.forEach(fadeInText => {
+          const elementPosition = fadeInText.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementPosition < windowHeight * 1) {
+            fadeInText.style.opacity = 1;
+          }
+        });
+      });
+    </script> 
+
+<!-- 第二部分 --> 
+<!-- 开篇雪花盒子 js --> 
+<script>
+      function createSnowflake(startY) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.top = startY + 'px'; // 设置雪花的初始位置
+        document.getElementById('snowfallContainer').appendChild(snowflake);
+
+        snowflake.addEventListener('animationend', () => {
+          snowflake.remove();
+        });
+      }
+
+      let snowfallStarted = false;
+      function startSnowfall() {
+        if (!snowfallStarted) {
+          snowfallStarted = true;
+          const startY = window.pageYOffset + 2000; // 设置初始高度
+          const snowfallInterval = setInterval(() => {
+            createSnowflake(startY);
+          }, 1000);
+        }
+      }
+
+      // 监听滚动事件，当滚动到指定高度时开始雪花下落
+      window.addEventListener('scroll', () => {
+        const triggerHeight = 1000; // 指定触发高度
+        if (window.pageYOffset > triggerHeight) {
+          startSnowfall();
+        }
+      });
+    </script> 
+<script type="text/javascript">
+      var isMobile = $(window).width() > 640 ? false : true;
+      var maxWIDTH = isMobile ? $(window).width() : 990;
+      var maxHEIGHT = $(window).height();
+
+      var WIDTH = maxWIDTH;
+      var HEIGHT = maxHEIGHT;
+      var highlightFlag = [0, 0, 0, 0, 0];
+      $(document).scroll(function () {
+        var top = $(document).scrollTop();
+        if(top<3114){
+           document.getElementById('mmif').style.display='none'
+        }
+         if(top>3114){
+           document.getElementById('mmif').style.display='block'
+        }
+        if (top > $(window).height() + 100) {
+        }
+
+        /* 高亮说明文字 */
+        for (var i = 0; i < highlightFlag.length; i++) {
+          var highlight = $(document).find('.highlight').eq(i).offset().top;
+          if (top > highlight - $(window).height() * 0.5) {
+            if (highlightFlag[i] == 0) {
+              $(document).find('.highlight').eq(i).animate({ backgroundColor: '#f2c372' }, 1000);
+              highlightFlag[i] = 1;
+            }
+          }
+        }
+      });
+    </script> 
+
+<!-- 第二部分 --> 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="cover1">
+  <div class="cover-text">
+  </div>
+</div>
+<div class="part-2-content">
+  <div class="img-box"> <img src="./image/线.gif" alt="" width="100%" /> </div>
+  <div class="text-content1">
+    <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+      <p class="pp1"> <img
+              src="./image/2.png"
+              class="image3"
+            />位于中国西北地区的甘肃省，是“两屏三带”中国生态安全战略格局中的重要组成部分，其生态质量决定着西北地区和青藏高原地区的生态安全。 </p>
+    </div>
+  </div>
+  <div class="content-div">
+    <div class="sun-box"> <img src="./image/light.png" alt="" width="100%" id="idcm" /> <img class="sun" src="./image/sun.png" alt="" width="16%" id="idcm2"/> </div>
+    <main>
+      <section id="scrolly-1">
+        <article class="scroll-content" id="mmif">
+          <div class="img-box img-box-6" style="background-image: url(); background-repeat: round"> <img src="./image/气候区划.png" alt=""  class="cpslimg" /> </div>
+          <div class="img-box img-box-1" style="background-image: url(./image/气候区划.png); background-repeat: round"> <img src="./image/河西西部暖温带干旱区.png" alt="" class="cpslimg"/> </div>
+          <div class="img-box img-box-2" style="background-image: url(./image/气候区划.png); background-repeat: round"> <img src="./image/河西冷温带干旱区.png" alt="" class="cpslimg"/> </div>
+          <div class="img-box img-box-3" style="background-image: url(./image/气候区划.png); background-repeat: round"> <img src="./image/祁连山高寒半干旱区.png" alt="" class="cpslimg"/> </div>
+          <div class="img-box img-box-4" style="background-image: url(./image/气候区划.png); background-repeat: round"> <img src="./image/陇中北部冷温带半干旱区.png" alt="" class="cpslimg"/> </div>
+          <div class="img-box img-box-5" style="background-image: url(./image/气候区划.png); background-repeat: round"> <img src="./image/陇中南部温带半湿润区.png" alt="" class="cpslimg"/> </div>
+        </article>
+        <article class="scroll-line" id="scrl">
+          <div class="step invisible"></div>
+          <div class="step">
+            <p>甘肃省大部分地区气候干燥，降水量少，水资源匮乏，是典型的气候变化敏感区和生态环境脆弱区。由于地域狭长，地质地貌、气候类型不一。</p>
+          </div>
+          <div class="step invisible"></div>
+          <div class="step">
+            <p> 莫高窟、东千佛洞和西千佛洞属河西西部暖温带干旱区，具有干旱（年降水量30-50mm）、降雨量少、蒸发量大、日照长、温差大、风沙活动频繁、风蚀作用强烈的典型沙漠气候特征。 </p>
+          </div>
+          <div class="step invisible"></div>
+          <div class="step">
+            <p>文殊山石窟属河西冷温带干旱区，该区域内降水量小，植被稀疏，是典型的干旱型生态脆弱区。</p>
+          </div>
+          <div class="step invisible"></div>
+          <div class="step">
+            <p>天梯山石窟和马蹄寺石窟群所处地属祁连山高寒半干旱区，气候寒冷，暴雨雪频繁，阴湿天气多。</p>
+          </div>
+          <div class="step invisible"></div>
+          <div class="step">
+            <p>炳灵寺石窟,陇中北部冷温带半干旱区，所处地区降水相对较多（年降水量350mm），蒸发量大，温差较大。</p>
+          </div>
+          <div class="step invisible"></div>
+          <div class="step">
+            <p>麦积山石窟、榆林窟、水帘洞、南石窟寺和北石窟寺属陇中南部温带半湿润区。气候冷凉，降水相对较多（年降水800mm）。</p>
+          </div>
+          <div class="step invisible"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div class="text-content">
+    <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+      <p class="pp1"> <img
+              src="./image/2.png"
+              class="image3"
+            />自然因素影响大、干旱范围广、水土资源不匹配、植被少而不均、承载力低、修复能力弱是甘肃生态的基本特征。 </p>
+    </div>
+  </div>
+  <div class="text-content">
+    <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+      <p class="pp1"> <img
+              src="./image/2.png"
+              class="image3"
+            />从温度来看，甘肃省气候变暖特征明显，年平均气温、平均最高及最低气温均呈明显增加趋势，并在21世纪初发生了由低到高的年代际转变。 </p>
+    </div>
+  </div>
+    
+  <div class="content-div">
+    <main>
+      <section id="scrolly-2">
+        <article class="scroll-content" id="dfv1">
+          <div class="img-box img-box-1 is-active"> <img src="./image/平均气温.png" alt="" />
+          </div>
+          <div class="img-box img-box-2">
+            <img src="./image/最高气温.png" alt="" /> </div>
+          <div class="img-box img-box-3">
+            <img src="./image/最低气温.png" alt="" /> </div>
+
+            
+          <div class="slide-bar">
+            <div class="slide-box">
+              <button class="slide-tag is-active" data-id="1">1</button>
+              <button class="slide-tag" data-id="2">2</button>
+              <button class="slide-tag" data-id="3">3</button>
+              <!-- <button class="slide-tag" data-id="4">4</button> --> 
+            </div>
+          </div>
+        </article>
+        <script type="text/javascript">
+              const slideBox = document.querySelector('#scrolly-2 .slide-bar .slide-box');
+              const imgBoxs = document.querySelectorAll('#scrolly-2 .scroll-content .img-box');
+              slideBox.addEventListener('click', function (event) {
+                imgBoxs.forEach((item, index) => {
+                  item.classList.remove('is-active');
+                  slideBox.children[index].classList.remove('is-active');
+                });
+                if (event.target.className !== 'slide-tag') return;
+                event.target.classList.add('is-active');
+                const tagId = event.target.dataset.id - 1;
+                imgBoxs[tagId].classList.add('is-active');
+              });
+            </script> 
+      </section>
+    </main>
+  </div>
+</div>
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p  class="pp1"> <img
+            src="./image/2.png"
+            class="image3"
+          />21世纪初以来，甘肃省平均最高气温及平均最低气温均表现出了明显的年代际增加。在甘肃省气候变暖下，极端高温日数也呈显著增加趋势尤其是2000年以来，极端高温日数较2000年以前增加了约<span
+            style="font-weight: bold; color: #f2c372"
+            >5.5天</span
+          >。 </p>
+  </div>
+</div>
+
+<!-- 第三部分 --> 
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="cover2"> 
+</div>
+<div class="img-box"> <img src="./image/线.gif" alt="" width="100%" /> </div>
+<br />
+   <div class="text-content" >
+      <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+        <p  class="pp1"> <img src="./image/2.png" class="image3" />1961-2021 年，甘肃年累计降水量为414.5mm，2000 年前年降水量呈减少趋势，2000
+          年后呈增加趋势。然而，近60 年降水日数则呈现明显的减少趋势，减少速率为<span style="font-weight: bold; color: #f2c372">7.4 天/10 年</span
+              >，这表明极端降水可能增加了。 </p>
+      </div>
+    </div> 
+<div class="gif-container" style="position: relative">
+  <div id="dddv" style="">
+<img src="./image/jiangshui.png" alt="" width="100%" /> </div>
+  </div>
+
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p  class="pp1"> <img src="./image/2.png" class="image3" />壁画保存的高风险湿度区间是<span style="font-weight: bold; color: #f2c372">60%~65%</span
+          >，在一定温度范围内，洞窟空气湿度的波动能够驱动岩体盐分向壁画地仗层迁移，不断地溶解，结晶，进行恶性循环，从而产生了严重的返碱、酥碱病害。 </p>
+  </div>
+</div>
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p  class="pp1"> <img
+            src="./image/2.png"
+            class="image3"
+          />壁画颜料层、底色层或地仗表面泥层所含胶质材料过多，是壁画产生起甲病害的根本原因，温湿度变化是导致病害发生的必要条件。在相对湿度较高的环境中，砂砾岩易风化，泥质胶结物中的黏土矿物反复吸水膨胀，也会导致沙砾的胶结结构破坏，导致洞窟壁画的空鼓病害。 </p>
+  </div>
+</div>
+<br />
+<div class="gif-container" style="position: relative">
+  <div id="dddv2" style="">
+    <iframe
+            id="fffim"
+          src="https://flo.uri.sh/visualisation/15317661/embed"
+          title="Interactive or visual content"
+          class="flourish-embed-iframe"
+          frameborder="0"
+          
+           
+          sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+        ></iframe>
+  </div>
+</div>
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p  class="pp1"> <img
+            src="./image/2.png"
+            class="image3"
+          />洪水泥石流——漫过窟前的防洪堤坝和跨河桥面，造成部分底层洞窟进水，并在窟前淤积了大量泥沙，引起洞窟潮湿、壁画霉变、酥碱等病害 </p>
+  </div>
+</div>
+<div class="cover3"></div>
+<div class="part-3-content">
+  <div class="content-div"> 
+    <div id="calendar"></div>
+    <script type="text/javascript">
+          const calendar = document.querySelector('#calendar');
+          // flood
+          const floods = [1971, 1973, 1976, 1977, 1979, 1981, 1987, 1993, 1995, 1996, 1997, 2000, 2002, 2005, 2007, 2010, 2011, 2012, 2019];
+          const largeFlood = [1979, 1987, 1995, 2000, 2007, 2011, 2012, 2019];
+          const hugeFlood = [1993];
+          for (let i = 1971; i <= 2020; i++) {
+            console.log(i);
+            const year = document.createElement('div');
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            year.appendChild(tooltip);
+            const span = document.createElement('span');
+            span.innerHTML = i;
+            year.className = 'year';
+            year.appendChild(span);
+            const flood = document.createElement('div');
+            floods.includes(i) ? (flood.classList.add('flood'), year.classList.add('is-flood')) : 0;
+            const img = document.createElement('span');
+            img.classList.add('flood-icon');
+            let iconNum = hugeFlood.includes(i) ? 5 : largeFlood.includes(i) ? 3 : floods.includes(i) ? 1 : 0;
+            for (let j = 0; j < iconNum; j++) {
+              flood.appendChild(img.cloneNode(true));
+            }
+            if (flood.classList.length > 0) year.appendChild(flood);
+            calendar.appendChild(year);
+          }
+        </script> 
+    <!-- <div id="tooltip"></div> --> 
+    <script type="text/javascript">
+          // 获取表格单元格和提示框元素
+          const cells = document.querySelectorAll('.year.is-flood');
+          // 为每个单元格添加事件监听器
+          for (let i = 0; i < cells.length; i++) {
+            const cell = cells[i];
+            const tooltip = cell.querySelector('.tooltip');
+            const text = +cell.querySelector('span').innerHTML;
+            if (text > 1970 && text <= 1980) {
+              tooltip.innerHTML = '以10年为期来看分析，1971、1973、1976、1977、1979 年都有流量大小不同的洪水发生。而以1979 年为最大。';
+            } else if (text > 1980 && text <= 1990) {
+              tooltip.innerHTML = '1981、1987 年的洪水，以 1987 年为最大。';
+            } else if (text > 1990 && text <= 2000) {
+              tooltip.innerHTML =
+                '1993、1995、1996、1997、2000 年的洪水中，其中，1993 年中竟然发生了 3 次不同流量的洪水。而 1995、2000 的都是较大的洪水。';
+            } else if (text > 2000 && text <= 2010) {
+              tooltip.innerHTML = '2002、2005、2007、2010 年的洪水中，以 2007 年为最大。';
+            } else if (text > 2010 && text <= 2020) {
+              tooltip.innerHTML = '而最近 10 多年中，2011、2012 年和 2019 年的洪水流量都特别大。';
+            }
+            cell.addEventListener('mouseenter', showTooltip);
+            cell.addEventListener('mouseleave', hideTooltip);
+          }
+
+          // 显示提示框
+          function showTooltip(event) {
+            const cell = event.target;
+            const tooltip = cell.querySelector('.tooltip');
+            const cellRect = cell.getBoundingClientRect(); // 获取单元格的位置信息
+            const tooltipWidth = tooltip.offsetWidth;
+            const tooltipHeight = tooltip.offsetHeight;
+            const windowWidth = window.innerWidth; // 窗口宽度
+
+            // 计算提示框的水平位置
+            let tooltipX = cellRect.left * (1 + 0.6);
+            if (tooltipX + tooltipWidth > windowWidth) {
+              // 调整提示框的位置，使其不超出页面右边界
+              tooltip.style.left = '-60%';
+              tooltip.style.transform = 'translateX(-50%)';
+            }
+            setTimeout(() => {
+              tooltip.style.opacity = 1;
+            }, 300);
+            tooltip.style.display = 'block';
+          }
+
+          // 隐藏提示框
+          function hideTooltip(event) {
+            const cell = event.target;
+            const tooltip = cell.querySelector('.tooltip');
+            tooltip.style.opacity = 0;
+            setTimeout(() => {
+              tooltip.style.display = 'none';
+            }, 300);
+          }
+        </script> 
+  </div>
+</div>
+<script src="./js/intersection-observer@0.12.2.js"></script> 
+<script src="./js/scrollama@3.2.0.js"></script> 
+<script type="text/javascript">
+      function setupScrollama(scrollyId, articleSelector, stepSelector, imgBoxSelector) {
+        var scrolly = document.querySelector(scrollyId);
+        var article = scrolly.querySelector(articleSelector);
+        var step = scrolly.querySelectorAll(stepSelector);
+        const imgBoxes = scrolly.querySelectorAll(imgBoxSelector);
+
+        // Initialize the scrollama
+        var scroller = scrollama();
+
+        // Scrollama event handler
+        function handleStepEnter(response) {
+          // response = { element, direction, index }
+
+          // Add color to the current step only
+          step.forEach(function (step) {
+            step.classList.remove('is-active');
+          });
+          step[response.index].classList.add('is-active');
+
+          // Update graphic based on step
+          // Figure out what the previous step's index is and remove the class from that
+          var previousIndex = Math.max(0, response.index - 1);
+          step[previousIndex].classList.remove('is-active');
+          console.log(response.index);
+          imgBoxes.forEach(imgBox => {
+            imgBox.classList.remove('is-active');
+          });
+          const currentIndex = Math.floor(response.index / 2);
+          // const currentIndex = response.index;
+          imgBoxes[currentIndex].classList.add('is-active');
+          if (scrollyId === '#scrolly-2') {
+            const slideTags = document.querySelectorAll('.slide-bar > .slide-box > .slide-tag');
+            slideTags.forEach(slideTag => {
+              slideTag.classList.remove('is-active');
+            });
+            slideTags[currentIndex].classList.add('is-active');
+          }
+          if (scrollyId === '#scrolly-3') {
+            const timelines = document.querySelectorAll('#scrolly-3 .timeline');
+            timelines.forEach(timeline => {
+              timeline.classList.remove('is-active');
+            });
+            timelines[currentIndex].classList.add('is-active');
+          }
+        }
+
+        // Setup the instance, pass callback functions
+        scroller
+          .setup({
+            step: `${scrollyId} ${articleSelector} ${stepSelector}`,
+            offset: 0.3,
+            debug: false
+          })
+          .onStepEnter(handleStepEnter);
+
+        // Setup resize event
+        window.addEventListener('resize', scroller.resize);
+      }
+
+      // Call the setupScrollama function for the first event
+      setupScrollama('#scrolly-1', 'article', '.step', '.img-box');
+
+      // Call the setupScrollama function for the second event
+      //setupScrollama('#scrolly-2', 'article', '.step', '.img-box');
+      setupScrollama('#scrolly-3', '.scroll-line', '.step', '.img-box');
+    </script>
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img
+            src="./image/2.png"
+            class="image3"
+          />甘肃是中国西北生态系统的代表，作为深居欧亚大陆腹地、对全球气候变化最为敏感的区域之一，西北地区丰富而脆弱的生态系统、文化遗产及社会经济正承受着<span
+            style="font-weight: bold; color: #f2c372"
+            >全球气候变化</span
+          >带来的新挑战。 </p>
+  </div>
+</div>
+<br />
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img
+            src="./image/2.png"
+            class="image3"
+          />环境气象监测工作是分析文物病害机制、科学展开文物保护和修复的第一步，是遗产地科学管理和保护决策的依据，已成为遗产保护最基本、最重要的工作之一。自1987
+      年莫高窟被列入世界文化遗产以来，<span style="font-weight: bold; color: #f2c372">敦煌研究院</span
+          >将国内外先进的科学监测和分析手段引入莫高窟的保护工作中，其监测体系经历了从无到有、从简单到复杂、从直觉判断到系统化现代化、从被动到主动的过程。 </p>
+  </div>
+</div>
+<br />
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img
+            src="./image/2.png"
+            class="image3"
+          />近年来，众多应对气候变化与灾害监测预警与防范的专项研究也为中国大量隶属不同地理和气候分区、材料和结构各异的<span
+            style="font-weight: bold; color: #f2c372"
+            >不可移动物质文化遗产</span
+          >保护应对气候变化风险提供了科学保障。 </p>
+  </div>
+</div>
+    <div class="img-box"> <img src="./image/线.gif" alt="" width="100%" /> </div>
+<br />
+
+<br />
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img src="./image/2.png" class="image3" /> 在2011年底完成的第三次全国文物普查发现： 不可移动文物的保护状况不容乐观。 现存的近<span style="font-weight: bold; color: #f2c372"
+            >77 万</span
+          >处不可移动文物， 保存状况令人堪忧的占到了多数， 其中保存状况较差的占<span style="font-weight: bold; color: #f2c372">17.77%</span>；
+      保存状况差的占<span style="font-weight: bold; color: #f2c372">8.43%</span>。 </p>
+  </div>
+</div>
+
+<br />
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img src="./image/2.png" class="image3" />虽然当前文保部门、基金会和研究机构已投入大量的科研力量和经费用于<span
+            style="font-weight: bold; color: #f2c372"
+            >重点文物</span
+          >的环境监测、修复和修缮，获得的理论和实践经验将有助于气候风险的应对。然而大量<span style="font-weight: bold; color: #f2c372"
+            >保护等级较低的文物</span
+          >，由于资金和人力的不足，尚未得到恰当的保护和修缮。 </p>
+  </div>
+</div>
+
+<br />
+<div class="gif-container" style="position: relative">
+  <div style="position: relative; display: flex; justify-content: center; align-items: center; ">
+<img src="./image/chanpin.png" alt="" width="30%" /> </div>
+  </div>
+    
+<br />
+<div class="text-content">
+  <div class="fade-in-text" style="opacity: 1; transition: opacity 1s ease-in-out; text-align: left">
+    <p class="pp1"> <img src="./image/2.png" class="image3" />面对因人类活动而加剧的西北地区文物病害进程以及结构性损毁风险，国际环保机构绿色和平于2023年8月4日，与华风气象传媒集团联合发布<span
+            style="font-weight: bold; color: #f2c372"
+            >《文明的温度：气候变化对中国西北地区生态、产业及文化遗产系统性影响评估——以甘肃为例》</span>报告，依托系统性考察评估，指出高度依赖气候条件和水资源的西北地区在物质文化遗产的存续等方面的更严峻处境，呼吁公众关注气候风险对文物的影响的同时，探索有效的解决之法。 </p>
+  </div>
+</div>   
+
+<br>
+<br>
+<div class="gif-container" style="position: relative">
+  <div style="position: relative; display: flex; justify-content: center; align-items: center; ">
+<img src="./image/chanpin2.png" alt="" width="30%" /> </div>
+  </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- 地图filterjs  --> 
+<script>
+      document.getElementById('iframeSelector').addEventListener('change', function () {
+        const selectedIframeId = this.value;
+
+        document.querySelectorAll('.iframe').forEach(iframe => {
+          if (iframe.id === selectedIframeId) {
+            iframe.classList.remove('hidden');
+          } else {
+            iframe.classList.add('hidden');
+          }
+        });
+      });
+    </script>
+    
+<!--Waves Container-->
+<div class="wave-drop" style="background-color: #262020">
+  <svg
+        class="waves"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28"
+        preserveAspectRatio="none"
+        shape-rendering="auto"
+      >
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(95,123,163,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(242,242,242,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(242,242,242,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(44,76,122,0.3)" />
+    </g>
+  </svg>
+</div>
+<!--Waves end--> 
+</body>
+</html>
